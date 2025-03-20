@@ -62,16 +62,28 @@
 </head>
 <body>
     <header>
-        <h1>To Do List</h1>
+        <h1>List</h1>
         <i class="fa-solid fa-plus plusIcon"></i>
     </header>
     <main>
-main
+        <input class="js-text-input" placeholder="Add item">
+        <button onclick="getInput();">Add</button>
 
+        <section class="js-list">
+        
+        </section>
     </main>
     <footer>
-footer
-
+        <p>Basic HTML/CSS/JS project, focusing on DOM.</p>
     </footer>
+    <script>
+    function getInput(){
+        const inputElement = document.querySelector('.js-text-input');
+        const item = inputElement.value;
+
+        document.querySelector('.js-list').innerHTML += `<p>${item}</p>`;
+        inputElement.value = '';
+    }
+    </script>
 </body>
 </html>
