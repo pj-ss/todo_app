@@ -1,0 +1,60 @@
+html {
+    font-family: 'Roboto', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    transition-duration: 300ms;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    background: #0f172a;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 24px;
+}
+
+header, main, footer {
+    width: 800px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+}
+
+.plusIcon {
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.plusIcon:hover {
+    color: aqua;
+}
+
+.fa-solid {
+    cursor: pointer;
+}
+
+.fa-pen-to-square:hover {
+    color: green;
+}
+
+.fa-trash:hover {
+    color: red;
+}
