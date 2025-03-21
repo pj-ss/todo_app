@@ -58,32 +58,77 @@
             color: aqua;
         }
 
+        .fa-solid {
+            cursor: pointer;
+        }
+
+        .fa-pen-to-square:hover {
+            color: green;
+        }
+
+        .fa-trash:hover {
+            color: red;
+        }
+
     </style>
-</head>
-<body>
-    <header>
-        <h1>List</h1>
-        <i class="fa-solid fa-plus plusIcon"></i>
-    </header>
-    <main>
-        <input class="js-text-input" placeholder="Add item">
-        <button onclick="getInput();">Add</button>
+    </head>
+    <body>
+        <header>
+            <h1>List</h1>
+            <i class="fa-solid fa-plus plusIcon"></i>
+        </header>
+        <main>
+            <input id="js-text-input" placeholder="Add item">
+            <button onclick="addItem();">Add</button>
 
-        <section class="js-list">
-        
-        </section>
-    </main>
-    <footer>
-        <p>Basic HTML/CSS/JS project, focusing on DOM.</p>
-    </footer>
-    <script>
-    function getInput(){
-        const inputElement = document.querySelector('.js-text-input');
-        const item = inputElement.value;
+            <div id="js-list">
+            Text
+            </div>
+        </main>
+        <footer>
+            <p>Basic HTML/CSS/JS project, focusing on DOM.</p>
+        </footer>
+        <script>
+            const list = [];
 
-        document.querySelector('.js-list').innerHTML += `<p>${item}</p>`;
-        inputElement.value = '';
-    }
-    </script>
+            renderList();
+
+            function renderList(){
+                let listHTML = '';
+
+                for (i=0; i<list.length; i++){
+                    const listItem = list[i];
+                    const html = `
+                        <p>
+                            ${listItem}
+                            <i onclick="
+                                const newValue = prompt('Edit item:', list[${i}]);
+                                if (newValue !== null) {
+                                    list[${i}] = newValue;
+                                    renderList();
+                                }
+                            "
+                            class="fa-solid fa-pen-to-square"></i>
+                            <i onclick="
+                            list.splice(${i}, 1)
+                            renderList();
+                            "
+                            class="fa-solid fa-trash"></i>
+                        </p>
+                    `;
+                    listHTML += html;
+                }
+                document.getElementById("js-list").innerHTML = listHTML;
+            }
+
+            function addItem(){
+                const inputElement = document.getElementById("js-text-input");
+                const item = inputElement.value;
+                list.push(item);
+                console.log(list);
+                inputElement.value = '';
+                renderList();
+            }
+        </script>
 </body>
 </html>
