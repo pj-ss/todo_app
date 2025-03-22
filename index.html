@@ -13,19 +13,20 @@
     </head>
     <body>
         <header>
-            <h1>List</h1>
-            <i class="fa-solid fa-plus plusIcon"></i>
+            <h1>To Do List</h1>
         </header>
         <main>
-            <input id="js-text-input" placeholder="Add item">
-            <button onclick="addItem();">Add</button>
+            <div id="textboxAndButton">
+                <input id="js-text-input" placeholder="Add item">
+                <button id="addBtn" onclick="addItem();"><i class="fa-solid fa-plus plusIcon"></i></button>
+            </div>
 
             <div id="js-list">
             Text
             </div>
         </main>
         <footer>
-            <p>Basic HTML/CSS/JS project, focusing on DOM.</p>
+            <a href="https://github.com/pj-ss" target="_blank" class="fa-brands fa-github"></a>
         </footer>
         <script src="main.js"></script>
 </body>

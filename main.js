@@ -8,22 +8,24 @@ function renderList(){
     for (i=0; i<list.length; i++){
         const listItem = list[i];
         const html = `
-            <p>
-                ${listItem}
-                <i onclick="
-                    const newValue = prompt('Edit item:', list[${i}]);
-                    if (newValue !== null) {
-                        list[${i}] = newValue;
-                        renderList();
-                    }
-                "
-                class="fa-solid fa-pen-to-square"></i>
-                <i onclick="
-                list.splice(${i}, 1)
-                renderList();
-                "
-                class="fa-solid fa-trash"></i>
-            </p>
+            <div id="itemPopulated">
+                <div class="itemText">${i+1}. ${listItem}</div>
+                <div id="itemActions">
+                    <i onclick="
+                        const newValue = prompt('Edit item:', list[${i}]);
+                        if (newValue !== null) {
+                            list[${i}] = newValue;
+                            renderList();
+                        }
+                    "
+                    class="fa-solid fa-pen-to-square"></i>
+                    <i onclick="
+                    list.splice(${i}, 1)
+                    renderList();
+                    "
+                    class="fa-solid fa-trash"></i>
+                </div>
+            </div>
         `;
         listHTML += html;
     }
@@ -32,9 +34,11 @@ function renderList(){
 
 function addItem(){
     const inputElement = document.getElementById("js-text-input");
-    const item = inputElement.value;
-    list.push(item);
-    console.log(list);
-    inputElement.value = '';
-    renderList();
+    const item = inputElement.value.trim();
+    if (item !== ''){
+        list.push(item);
+        console.log(list);
+        inputElement.value = '';
+        renderList();
+    }
 }

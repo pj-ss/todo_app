@@ -11,7 +11,7 @@ html {
 
 body {
     min-height: 100vh;
-    background: #0f172a;
+    background: #2a2438;
     color: white;
     display: flex;
     flex-direction: column;
@@ -38,13 +38,40 @@ main {
     flex: 1;
 }
 
+#textboxAndButton {
+    display: flex;
+    flex-direction: row;
+}
+
+#js-text-input {
+    padding: 10px;
+    background: transparent;
+    border: 1px solid #5c5470; 
+    color: white;
+    flex: 1;
+}
+
+#addBtn {
+    background-color: #dbd8e3; 
+    color: #2a2438;
+    border: 1px solid #5c5470;
+    padding: 6px; 
+}
+
+#addBtn:hover{
+    background-color: #2a2438; 
+    color: #dbd8e3;
+    border: 1px solid #5c5470;
+    padding: 6px;    
+}
+
 .plusIcon {
-    font-size: 2rem;
+    font-size: 1.5rem;
     cursor: pointer;
 }
 
 .plusIcon:hover {
-    color: aqua;
+    color: #5c5470;
 }
 
 .fa-solid {
@@ -52,9 +79,42 @@ main {
 }
 
 .fa-pen-to-square:hover {
-    color: green;
+    color: #5c5470;
 }
 
 .fa-trash:hover {
-    color: red;
+    color: #5c5470;
 }
+
+.fa-github {
+    color: #dbd8e3;
+}
+
+.fa-github:hover {
+    color: #5c5470;
+}
+
+#itemPopulated {
+    display: flex;
+    align-items: center;
+    margin: 1px;
+    padding: 8px;
+}
+
+.itemText {
+    flex: 1;
+}
+
+#itemActions {
+    display: flex;
+    gap: 10px;
+}
+
+/*
+Color pallet:
+first-color: #dbd8e3; 
+second-color: #5c5470; 
+third-color: #352f44; 
+fourth-color: #2a2438; 
+*/
+
